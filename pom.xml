@@ -16,13 +16,21 @@
     <scala.version>2.11.8</scala.version>
     <scala.binary.version>2.11</scala.binary.version>
     <junit.version>3.8.1</junit.version>
+    <grok.version>0.1.5</grok.version>
+    <cdh_version>cdh5.13.1</cdh_version>
     <apache.commons.version>1.5</apache.commons.version>
   </properties>
 
   <repositories>
     <repository>
-      <id>cloudera</id>
+      <id>cloudera-repos</id>
+      <name>Cloudera Repos</name>
       <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+    </repository>
+    <repository>
+      <id>maven-hadoop</id>
+      <name>Hadoop Releases</name>
+      <url>https://repository.cloudera.com/content/repositories/releases/</url>
     </repository>
   </repositories>
 
@@ -36,14 +44,27 @@
 
   <dependencies>
     <dependency>
+      <groupId>io.thekraken</groupId>
+      <artifactId>grok</artifactId>
+      <version>${grok.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
       <version>${scala.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_${scala.binary.version}</artifactId>
       <version>${spark.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_${scala.binary.version}</artifactId>
+      <version>${spark.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
